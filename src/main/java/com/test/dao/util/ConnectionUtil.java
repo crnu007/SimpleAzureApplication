@@ -21,8 +21,9 @@ public class ConnectionUtil {
 		log.info("Loading application properties");
        
         //properties.load(ConnectionUtil.class.getClassLoader().getResourceAsStream("application.properties"));
+		String pwd ="pwd";
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		String url = "jdbc:sqlserver://dockersqldbserver.database.windows.net:1433;database=dockervmsqldb;user=dockervmsqlusr@dockersqldbserver;password=dockersqlusr@123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+		String url = "jdbc:sqlserver://dockersqldbserver.database.windows.net:1433;database=dockervmsqldb;user=dockervmsqlusr@dockersqldbserver;password="+pwd+";encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
         Connection connection = DriverManager.getConnection(url, properties);
         log.info("Database connection test: " + connection.getCatalog());
         return connection;
